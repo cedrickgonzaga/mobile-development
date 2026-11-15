@@ -63,13 +63,19 @@ and human-readable: `WHERE date >= ? AND date < ?`.
 - Palette: charcoal `#282A2E`, muted `#697177`, sage `#E2EFE7`, purple
   `#9A9DE5`, teal `#9CBFB4`, yellow `#FCD378`, white cards
 
-## Run
+## Quick start
 
 ```bash
+cd expense_tracker
 flutter pub get
-flutter run          # Android emulator or device
-flutter test         # model + form validation tests
-flutter analyze
+flutter run          # with an emulator or device connected
+```
+
+Other commands:
+
+```bash
+flutter test         # 6 tests: model round-trip, categories, form validation
+flutter analyze      # static analysis
 flutter build apk --release
 ```
 
