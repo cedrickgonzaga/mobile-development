@@ -64,6 +64,7 @@ and human-readable: `WHERE date >= ? AND date < ?`.
 ## Quick start
 
 ```bash
+git clone https://github.com/cedrickgonzaga/mobile-development
 cd expense_tracker
 flutter pub get
 flutter run          # runs on the connected device or desktop
