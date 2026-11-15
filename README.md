@@ -11,8 +11,9 @@ the Mobile Development final project.
   `<= 0`, missing category, missing date
 - **Conditional logic**: monthly total, per-category totals, monthly budget with
   an over-budget warning, empty states
-- **Local storage only**: expenses in SQLite (`sqflite`), monthly budget in
-  `SharedPreferences`; works fully offline
+- **Local storage only**: expenses in SQLite (`sqflite` + `sqflite_common_ffi`
+  for desktop), monthly budget in `SharedPreferences`; works fully offline
+- **Cross-platform**: runs on Android, iOS, Linux, macOS and Windows
 - **Currency**: Philippine peso (`₱`) formatting via `intl`
 
 ## Project structure
@@ -68,7 +69,15 @@ and human-readable: `WHERE date >= ? AND date < ?`.
 ```bash
 cd expense_tracker
 flutter pub get
-flutter run          # with an emulator or device connected
+flutter run          # runs on the connected device or desktop
+```
+
+On **desktop** (Linux/macOS/Windows), the app runs natively — no emulator
+needed. On **Android**, connect a device or launch an emulator first:
+
+```bash
+flutter emulators --launch Medium_Phone_API_37.0   # if using the bundled AVD
+flutter run
 ```
 
 Other commands:
@@ -85,19 +94,21 @@ Captured on an Android emulator (1080 × 2400) from the release build:
 
 | | |
 | --- | --- |
-| ![Splash](docs/screenshots/01-splash.png) | ![Home](docs/screenshots/02-home.png) |
+| ![Splash](expense_tracker/docs/screenshots/01-splash.png) | ![Home](expense_tracker/docs/screenshots/02-home.png) |
 | Splash | Home (over-budget state) |
-| ![Expense list](docs/screenshots/03-expense-list.png) | ![Add expense](docs/screenshots/04-add-expense.png) |
+| ![Expense list](expense_tracker/docs/screenshots/03-expense-list.png) | ![Add expense](expense_tracker/docs/screenshots/04-add-expense.png) |
 | Expense list, grouped by day | Add expense |
-| ![Validation](docs/screenshots/05-validation.png) | ![Details](docs/screenshots/06-details.png) |
+| ![Validation](expense_tracker/docs/screenshots/05-validation.png) | ![Details](expense_tracker/docs/screenshots/06-details.png) |
 | Inline validation errors | Details |
-| ![Edit](docs/screenshots/07-edit-expense.png) | ![Delete](docs/screenshots/08-delete-confirm.png) |
+| ![Edit](expense_tracker/docs/screenshots/07-edit-expense.png) | ![Delete](expense_tracker/docs/screenshots/08-delete-confirm.png) |
 | Edit (same form, prefilled) | Delete confirmation |
-| ![About](docs/screenshots/09-about.png) | ![Team](docs/screenshots/10-about-team.png) |
+| ![About](expense_tracker/docs/screenshots/09-about.png) | ![Team](expense_tracker/docs/screenshots/10-about-team.png) |
 | About | About — team |
+| ![Date picker](expense_tracker/docs/screenshots/11-date-picker.png) | |
+| Date picker | |
 
 Defense preparation notes (15 likely questions answered from this code) are in
-[`docs/DEFENSE_NOTES.md`](docs/DEFENSE_NOTES.md).
+[`expense_tracker/docs/DEFENSE_NOTES.md`](expense_tracker/docs/DEFENSE_NOTES.md).
 
 ## Team
 
