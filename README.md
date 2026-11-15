@@ -59,10 +59,7 @@ and human-readable: `WHERE date >= ? AND date < ?`.
 
 ## Design
 
-- Typeface: **Plus Jakarta Sans** (bundled locally, no runtime download)
-- Headings: bold/extra bold with tight negative tracking
-- Palette: charcoal `#282A2E`, muted `#697177`, sage `#E2EFE7`, purple
-  `#9A9DE5`, teal `#9CBFB4`, yellow `#FCD378`, white cards
+- https://www.figma.com/design/swtIU6lQO9ykeKSDu3SQCw/Expense-Tracker---Mobile-App-Design?node-id=0-1&t=XPvP3MP8aJ113doy-1
 
 ## Quick start
 
