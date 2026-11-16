@@ -21,7 +21,7 @@ extension ExpenseCategoryVisuals on ExpenseCategory {
   /// Base accent colour from the palette.
   Color get accent {
     return switch (this) {
-      ExpenseCategory.food => AppColors.yellow,
+      ExpenseCategory.food => AppColors.peach,
       ExpenseCategory.transport => AppColors.purple,
       ExpenseCategory.bills => AppColors.teal,
       ExpenseCategory.shopping => AppColors.powderBlue,

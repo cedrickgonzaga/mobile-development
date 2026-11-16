@@ -15,6 +15,10 @@ class AppColors {
   static const teal = Color(0xFF9CBFB4); // positive values
   static const yellow = Color(0xFFFCD378); // warnings & highlights
 
+  /// Extra accent: dusty peach for the Food category icon
+  /// (yellow is reserved for over-budget warnings).
+  static const peach = Color(0xFFEFC4AD);
+
   /// Derived token: the palette has no red, so destructive actions use this
   /// muted terracotta, which sits comfortably next to the sage background.
   static const danger = Color(0xFFC2695F);
