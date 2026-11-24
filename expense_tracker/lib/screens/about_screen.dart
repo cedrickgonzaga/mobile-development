@@ -12,10 +12,12 @@ class AboutScreen extends StatelessWidget {
   static const _version = '1.0.0';
 
   static const _team = <(String, String)>[
-    ('Gonzaga, Cedrick', 'Project Lead · Data & SQLite'),
-    ('De Chavez, Gerard Cyr', 'UI/UX · Theme & main screens'),
-    ('Dungo, Mitch', 'Navigation · Add & Edit forms'),
-    ('Ramirez, Jay Darrius', 'Logic · Testing & documentation'),
+    ('Gonzaga, Cedrick', 'Project Leader'),
+    ('Dungo, Mitch', 'Frontend Developer'),
+    ('De Chavez, Gerard Cyr', 'UI/UX Designer'),
+    ('Ramirez, Jay Darrius', 'Navigation Developer'),
+    ('Bernales, Remier Marc', 'Backend/Data Developer'),
+    ('Melia, Juleto Jaycee', 'Functionality & Testing · Documentation & QA'),
   ];
 
   static const _steps = <String>[
@@ -61,7 +63,7 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: AppSpacing.lg),
-                  Text('Expense Tracker', style: AppTextStyles.h2),
+                  Text('Spendly', style: AppTextStyles.h2),
                   const SizedBox(height: 4),
                   Text('Version $_version', style: AppTextStyles.caption),
                   const SizedBox(height: AppSpacing.sm),

@@ -1,5 +1,5 @@
 name: expense_tracker
-description: "A personal expense tracker with local SQLite storage."
+description: "Spendly — a personal expense tracker with local SQLite storage."
 publish_to: 'none'
 version: 1.0.0+1
 

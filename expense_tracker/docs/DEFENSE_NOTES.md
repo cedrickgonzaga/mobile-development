@@ -1,4 +1,4 @@
-# Defense notes — Expense Tracker
+# Defense notes — Spendly
 
 Fifteen questions an instructor is likely to ask, answered from this codebase.
 Line references are to the files in `expense_tracker/lib/`.
@@ -188,9 +188,11 @@ the README structure. Then answer questions by pointing at the actual code.
 
 ## Files each member should be able to explain
 
-| Member | Files |
-| --- | --- |
-| Gonzaga, Cedrick | `data/database_helper.dart`, `data/budget_service.dart`, `models/*` |
-| De Chavez, Gerard Cyr | `theme/*`, `screens/home_screen.dart`, `screens/expense_list_screen.dart`, `widgets/*` |
-| Dungo, Mitch | `screens/splash_screen.dart`, `screens/main_shell.dart`, `screens/expense_form_screen.dart`, `screens/expense_details_screen.dart`, `utils/page_routes.dart` |
-| Ramirez, Jay Darrius | `utils/formatters.dart`, `test/expense_test.dart`, `screens/about_screen.dart`, `README.md`, `docs/` |
+| Member | Role (PDF §VII) | Files |
+| --- | --- | --- |
+| Gonzaga, Cedrick | Project Leader | `data/database_helper.dart`, `data/budget_service.dart`, `models/*` |
+| De Chavez, Gerard Cyr | UI/UX Designer | `theme/*`, `screens/home_screen.dart`, `screens/expense_list_screen.dart`, `widgets/*` |
+| Dungo, Mitch | Frontend Developer | `screens/splash_screen.dart`, `screens/main_shell.dart`, `screens/expense_form_screen.dart`, `screens/expense_details_screen.dart`, `utils/page_routes.dart` |
+| Ramirez, Jay Darrius | Navigation Developer | `screens/main_shell.dart`, `utils/page_routes.dart`, `screens/splash_screen.dart` |
+| Bernales, Remier Marc | Backend/Data Developer | `data/database_helper.dart`, `data/budget_service.dart`, `models/expense.dart` |
+| Melia, Juleto Jaycee | Functionality and Testing; Documentation and QA | `test/expense_test.dart`, `utils/formatters.dart`, `screens/about_screen.dart`, `docs/` |

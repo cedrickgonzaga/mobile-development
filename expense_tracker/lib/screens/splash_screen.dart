@@ -54,39 +54,50 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   );
                 },
-                child: Column(
-                  children: [
-                    Container(
-                      width: 88,
-                      height: 88,
-                      decoration: BoxDecoration(
-                        color: AppColors.purple,
-                        borderRadius: BorderRadius.circular(28),
-                        boxShadow: AppSpacing.cardShadow,
+                // Full width so the inner column centres on the screen no
+                // matter how wide the longest line is.
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 88,
+                        height: 88,
+                        decoration: BoxDecoration(
+                          color: AppColors.purple,
+                          borderRadius: BorderRadius.circular(28),
+                          boxShadow: AppSpacing.cardShadow,
+                        ),
+                        child: const Icon(
+                          Icons.account_balance_wallet_rounded,
+                          size: 40,
+                          color: AppColors.charcoal,
+                        ),
                       ),
-                      child: const Icon(
-                        Icons.account_balance_wallet_rounded,
-                        size: 40,
-                        color: AppColors.charcoal,
+                      const SizedBox(height: AppSpacing.xxl),
+                      Text(
+                        'Spendly',
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.display,
                       ),
-                    ),
-                    const SizedBox(height: AppSpacing.xxl),
-                    Text(
-                      'Expense\nTracker',
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.display,
-                    ),
-                    const SizedBox(height: AppSpacing.md),
-                    Text(
-                      'Small records, clearer money.',
-                      style: AppTextStyles.caption,
-                    ),
-                  ],
+                      const SizedBox(height: AppSpacing.md),
+                      Text(
+                        'Small records, clearer money.',
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.caption,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const Spacer(),
-              Text('Mobile Development · Final Project',
-                  style: AppTextStyles.captionSmall),
+              const Text(
+                'Mobile Development · Final Project',
+                textAlign: TextAlign.center,
+                style: AppTextStyles.captionSmall,
+              ),
               const SizedBox(height: AppSpacing.xs),
             ],
           ),

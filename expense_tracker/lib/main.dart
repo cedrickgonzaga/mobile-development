@@ -28,7 +28,7 @@ class ExpenseTrackerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Expense Tracker',
+      title: 'Spendly',
       theme: AppTheme.light,
       home: const SplashScreen(),
     );

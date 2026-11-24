@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Spendly — Project Documentation</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 11pt; color: #1f2023; max-width: 900px; margin: 32px auto; padding: 0 24px; line-height: 1.45; }
+  h1 { font-size: 22pt; margin: 0 0 4px; }
+  h2 { font-size: 14pt; margin: 28px 0 10px; border-bottom: 1px solid #cccccc; padding-bottom: 3px; }
+  h3 { font-size: 12pt; margin: 18px 0 8px; }
+  p { margin: 0 0 10px; }
+  .sub { color: #555555; margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 16px; }
+  th, td { border: 1px solid #bbbbbb; padding: 6px 8px; text-align: left; vertical-align: top; font-size: 10pt; }
+  th { background: #eeeeee; font-weight: bold; }
+  td.code { width: 46px; font-weight: bold; white-space: nowrap; }
+  ul { margin: 0 0 12px 22px; padding: 0; }
+  li { margin-bottom: 4px; }
+  .note { background: #f5f5f5; border-left: 3px solid #999999; padding: 8px 12px; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<h1>Spendly</h1>
+<p class="sub">Personal Expense Tracker · Flutter Mobile Application Development · Final Project</p>
+
+<h2>1. Project Description</h2>
+<p>Spendly is a local-first personal expense tracker for Android, built with Flutter and Dart. It lets a user record everyday spending, assign each record to one of seven fixed categories, track a monthly budget, and understand where the money went through a monthly summary, a category breakdown, and a chronological expense list. All data is stored on the device using SQLite, and the budget setting is stored with SharedPreferences. The application requires no account, no internet connection, and no cloud service.</p>
+
+<h2>2. Purpose</h2>
+<p>The purpose of Spendly is to give students and young professionals a fast, private way to record daily expenses and see the month at a glance. Recording an expense takes a few seconds, the monthly total and budget status are visible on the home screen, and every record can be reviewed, edited, or deleted. Because the data stays on the phone, the application demonstrates local data management as required by the course while remaining useful in daily life.</p>
+
+<h2>3. Problem Addressed</h2>
+<ul>
+  <li>Daily spending is often not recorded because trackers require many fields, an account, or an internet connection, so the habit is abandoned within days.</li>
+  <li>Students and young professionals working with a fixed allowance need to know how much of the monthly budget is left without doing manual arithmetic.</li>
+  <li>Without category totals, it is difficult to notice which kind of spending consumes most of the budget.</li>
+  <li>Cloud based applications store personal financial data on remote servers and stop working offline.</li>
+</ul>
+
+<h2>4. Target Users</h2>
+<ul>
+  <li>Students and young professionals with a fixed monthly allowance or salary who budget manually.</li>
+  <li>Filipino users who think in pesos and need a weightless, offline tool with no sign-up.</li>
+  <li>Privacy conscious users who prefer personal spending records to stay on their own device.</li>
+  <li>Beginners who want a simple interface: one add button, one list, one monthly summary, no configuration.</li>
+</ul>
+
+<h2>5. Application Features</h2>
+
+<h3>5.1 Core Expense Management</h3>
+<table>
+  <tr><th>Code</th><th>Feature</th><th>Description</th><th>Screen</th></tr>
+  <tr><td class="code">F1</td><td>Create expense</td><td>Records a title, amount, category, date and an optional note.</td><td>Add</td></tr>
+  <tr><td class="code">F2</td><td>Browse all expenses</td><td>Lists every saved record newest first, grouped by day.</td><td>Expenses</td></tr>
+  <tr><td class="code">F3</td><td>View one expense</td><td>Shows the full record: amount, title, category, dates and note.</td><td>Details</td></tr>
+  <tr><td class="code">F4</td><td>Update expense</td><td>Reopens the same form prefilled with the saved values.</td><td>Edit</td></tr>
+  <tr><td class="code">F5</td><td>Delete expense</td><td>Asks for confirmation, then permanently removes the record.</td><td>Details</td></tr>
+  <tr><td class="code">F6</td><td>Persistent storage</td><td>All records are kept in an on-device SQLite database and survive restarts.</td><td>Data layer</td></tr>
+  <tr><td class="code">F7</td><td>Monthly budget</td><td>A user-defined limit stored in SharedPreferences, default 10,000 pesos.</td><td>Home</td></tr>
+  <tr><td class="code">F8</td><td>Budget progress</td><td>Progress bar, percentage used and remaining balance in pesos.</td><td>Home</td></tr>
+  <tr><td class="code">F9</td><td>Over-budget warning</td><td>A highlighted chip reading "Over budget by X pesos" and a bar that changes colour.</td><td>Home</td></tr>
+  <tr><td class="code">F10</td><td>Month summary</td><td>Total spent this month plus the number of records.</td><td>Home</td></tr>
+  <tr><td class="code">F11</td><td>Category breakdown</td><td>Per-category totals and percentage share, largest first; empty categories hidden.</td><td>Home</td></tr>
+  <tr><td class="code">F12</td><td>Recent expenses</td><td>The four most recent records with a "See all" shortcut to the Expenses tab.</td><td>Home</td></tr>
+  <tr><td class="code">F13</td><td>Pull-to-refresh</td><td>Re-reads data from SQLite on demand.</td><td>Home, Expenses</td></tr>
+  <tr><td class="code">F14</td><td>Empty states</td><td>Explanatory card with an "Add expense" action instead of a blank screen.</td><td>Home, Expenses</td></tr>
+  <tr><td class="code">F15</td><td>Action feedback</td><td>Confirmation messages after adding, updating, deleting or changing the budget.</td><td>All</td></tr>
+  <tr><td class="code">F16</td><td>Day grouping</td><td>Headers read Today, Yesterday or the weekday date, each with a daily subtotal.</td><td>Expenses</td></tr>
+  <tr><td class="code">F17</td><td>Count and grand total</td><td>For example "12 expenses · 4,820.50 pesos total".</td><td>Expenses</td></tr>
+</table>
+
+<h3>5.2 Forms and Validation</h3>
+<table>
+  <tr><th>Code</th><th>Feature</th><th>Description</th></tr>
+  <tr><td class="code">F18</td><td>Required-field validation</td><td>Title, amount, category and date are enforced with inline messages.</td></tr>
+  <tr><td class="code">F19</td><td>Title rules</td><td>Required, minimum 3 characters, maximum 60.</td></tr>
+  <tr><td class="code">F20</td><td>Amount rules</td><td>Numeric input only, must be greater than zero, decimals accepted.</td></tr>
+  <tr><td class="code">F21</td><td>Category selection</td><td>Seven choices shown as chips with icons; a missing category shows its own error.</td></tr>
+  <tr><td class="code">F22</td><td>Date picker</td><td>Read-only field opening a calendar limited to the last five years, with no future dates.</td></tr>
+  <tr><td class="code">F23</td><td>Note rules</td><td>Optional, multiline, maximum 200 characters.</td></tr>
+  <tr><td class="code">F24</td><td>Save-in-progress state</td><td>The button disables and shows a spinner to prevent duplicate records.</td></tr>
+  <tr><td class="code">F25</td><td>Invalid-submit feedback</td><td>A haptic cue and all errors shown in a single pass.</td></tr>
+  <tr><td class="code">F26</td><td>Prefilled edit form</td><td>Every field loads the stored value when editing.</td></tr>
+</table>
+
+<h3>5.3 Navigation and Screens</h3>
+<table>
+  <tr><th>Code</th><th>Feature</th><th>Description</th></tr>
+  <tr><td class="code">F27</td><td>Splash screen</td><td>A 1.6-second branded opening with a fade-and-rise animation; it cannot be returned to.</td></tr>
+  <tr><td class="code">F28</td><td>Three-tab shell</td><td>Home, Expenses and About through a bottom navigation bar.</td></tr>
+  <tr><td class="code">F29</td><td>Fade page transitions</td><td>Used when opening Add, Edit and Details.</td></tr>
+  <tr><td class="code">F30</td><td>Fresh data on tab switch</td><td>Screens rebuild so totals are never stale.</td></tr>
+  <tr><td class="code">F31</td><td>About screen</td><td>App identity and version, technology note, four-step usage guide, privacy statement and team list.</td></tr>
+</table>
+
+<h3>5.4 Data and Technical Implementation</h3>
+<table>
+  <tr><th>Code</th><th>Feature</th><th>Description</th></tr>
+  <tr><td class="code">F32</td><td>Database schema</td><td>One expenses table with title, amount, category, date, note and creation timestamp; amount must be positive; the date column is indexed.</td></tr>
+  <tr><td class="code">F33</td><td>Single data gateway</td><td>One shared database connection for the whole app.</td></tr>
+  <tr><td class="code">F34</td><td>Aggregate queries</td><td>Totals, counts and category sums are computed by SQL, not in Dart.</td></tr>
+  <tr><td class="code">F35</td><td>Seven fixed categories</td><td>Food, Transport, Bills, Shopping, Health, Entertainment, Others; unrecognised values fall back to Others.</td></tr>
+  <tr><td class="code">F36</td><td>Money formatting</td><td>Philippine peso with thousands separators and two decimals.</td></tr>
+  <tr><td class="code">F37</td><td>Date formatting</td><td>Short date, full date, month-and-year, and relative day labels.</td></tr>
+  <tr><td class="code">F38</td><td>Time-of-day greeting</td><td>Morning, afternoon or evening on Home.</td></tr>
+  <tr><td class="code">F39</td><td>Design system</td><td>Plus Jakarta Sans in five weights, Material 3, and centralised colour, spacing and text tokens.</td></tr>
+  <tr><td class="code">F40</td><td>Reusable widgets</td><td>Shared card, expense row, category badge, empty state, section header and budget dialog.</td></tr>
+  <tr><td class="code">F41</td><td>State management</td><td>setState with asynchronous loads guarded against disposed screens.</td></tr>
+  <tr><td class="code">F42</td><td>Automated tests</td><td>Six tests covering data conversion, category fallback, copy behaviour and form validation.</td></tr>
+</table>
+
+<h2>6. Required Screens and Their Implementation</h2>
+<table>
+  <tr><th>Required Screen</th><th>Implementation</th></tr>
+  <tr><td>Splash or Welcome</td><td>splash_screen.dart (F27)</td></tr>
+  <tr><td>Home</td><td>Home tab: summary, budget, category breakdown, recent records (F7 to F12)</td></tr>
+  <tr><td>Main Management</td><td>Expenses tab: grouped list with daily subtotals (F13 to F17)</td></tr>
+  <tr><td>Add Record</td><td>ExpenseFormScreen opened without an existing expense</td></tr>
+  <tr><td>Edit Record</td><td>ExpenseFormScreen opened with an existing expense</td></tr>
+  <tr><td>Details</td><td>expense_details_screen.dart (F3 and F5)</td></tr>
+  <tr><td>About</td><td>About tab (F31)</td></tr>
+</table>
+
+<h2>7. Scope and Limitations</h2>
+<p>The following are intentionally outside version 1.0.0 and are listed as future work: user accounts and sign-in; cloud sync or backup; CSV or PDF export; search and filtering; custom or editable categories; recurring expenses; charts beyond the category breakdown; multiple currencies; localisation; dark mode.</p>
+
+<h2>8. System Flowchart Outline</h2>
+<ul>
+  <li>Start, then Splash screen (1.6 seconds) then Home tab.</li>
+  <li>Home branches to: Expenses tab, About tab, Add expense, Details of a recent expense, Edit budget dialog.</li>
+  <li>Expenses tab branches to: Add expense, Details of a selected expense.</li>
+  <li>Add and Edit both lead to Save, which validates input and writes to the SQLite table, then returns to the previous screen.</li>
+  <li>Details branches to: Edit expense (returns to Details) and Delete (confirmation dialog, then returns to the list).</li>
+  <li>Data layer: SQLite database for expense records, SharedPreferences for the monthly budget.</li>
+</ul>
+
+<h2>9. Group Members and Responsibilities</h2>
+<p>Group roles follow Section VII of the final project guidelines. The group has six members, so the functionality and testing responsibility and the documentation and quality assurance responsibility are combined for one member, as the guidelines allow.</p>
+<table>
+  <tr><th>Member</th><th>PDF Role</th><th>Main Responsibility</th></tr>
+  <tr><td>Gonzaga, Cedrick</td><td>Project Leader</td><td>Overall coordination, planning and progress monitoring; oversight of the full build from proposal to final demonstration.</td></tr>
+  <tr><td>Dungo, Mitch</td><td>Frontend Developer</td><td>Flutter widgets and screen development: splash, home, expense list, details, add and edit forms.</td></tr>
+  <tr><td>De Chavez, Gerard Cyr</td><td>UI/UX Designer</td><td>Interface layout, colours and visual design: Figma wireframes, palette, typography and component set.</td></tr>
+  <tr><td>Ramirez, Jay Darrius</td><td>Navigation Developer</td><td>Screen navigation and application flow: tab shell, page transitions, flow between list, details and forms.</td></tr>
+  <tr><td>Bernales, Remier Marc</td><td>Backend/Data Developer</td><td>CRUD operations and local data storage: SQLite schema and queries, SharedPreferences budget storage.</td></tr>
+  <tr><td>Melia, Juleto Jaycee</td><td>Functionality and Testing; Documentation and Quality Assurance</td><td>Feature integration, testing and debugging; documentation, screenshots and presentation preparation.</td></tr>
+</table>
+
+<p class="note">All members contributed to testing and to the final demonstration. Group roles describe main responsibility, not exclusive ownership.</p>
+
+</body>
+</html>
